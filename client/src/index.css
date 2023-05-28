@@ -1,0 +1,121 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&family=Poppins&display=swap');
+
+:root {
+  --primary-navy-blue: #008fe2;
+  --primary-light-blue: #c7e1fc;
+  --primary-off-white: #f6f6f6;
+  --primary-light-gray: #d3d3d3;
+  --primary-dark-gray: #333333;
+  --primary-black: #000000;
+
+  --secondary-bright-blue: #1982fc;
+  --secondary-pale-yellow: #fffdd0;
+}
+
+body {
+  margin: 0;
+  font-family: 'Montserrat', -apple-system, BlinkMacSystemFont, 'Segoe UI',
+    'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans',
+    'Helvetica Neue', sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  color: var(--primary-black);
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+    monospace;
+}
+
+h1 {
+  font-size: 28px;
+}
+
+h2 {
+  font-size: 24px;
+}
+
+.App {
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: var(--primary-light-blue);
+}
+
+.form-row {
+  display: flex;
+  gap: 15px;
+  width: inherit;
+  height: 100px;
+  align-items: center;
+  justify-content: center;
+}
+
+.form-input {
+  width: 60%;
+  height: 55px;
+  text-indent: 15px;
+  border-radius: 24px;
+  border: none;
+  font-size: 18px;
+  outline: none;
+}
+
+.form-input::placeholder {
+  color: var(--primary-navy-blue);
+}
+
+input {
+  color: var(--primary-navy-blue);
+}
+
+.form-icon {
+  color: var(--primary-navy-blue);
+  width: 45px;
+  height: 45px;
+  padding: 10px;
+  background-color: var(--primary-off-white);
+  border-radius: 100%;
+}
+
+.form-btn {
+  color: var(--primary-navy-blue);
+  background-color: white;
+  font-size: 20px;
+  filter: drop-shadow(1px 2px 1px var(--secondary-bright-blue));
+  text-indent: 0px;
+  border: none;
+  outline: none;
+  padding: 10px 20px;
+  border-radius: 24px;
+  transition: background-color 0.3s, color 0.3s;
+}
+
+.form-btn:hover {
+  background-color: var(--primary-navy-blue);
+  color: var(--primary-off-white);
+  cursor: pointer;
+}
+
+.form-footer {
+  color: var(--primary-navy-blue);
+}
+
+.custom-toast {
+  height: 125px;
+  width: 275px;
+}
+
+.scroll-style::-webkit-scrollbar-track {
+  background-color: var(--primary-light-green);
+}
+
+.scroll-style::-webkit-scrollbar {
+  width: 12px;
+  background-color: var(--primary-light-gray);
+}
+
+.scroll-style::-webkit-scrollbar-thumb {
+  background-color: var(--primary-navy-blue);
+}

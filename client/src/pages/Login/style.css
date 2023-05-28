@@ -1,0 +1,13 @@
+.login-container{
+    text-align: center;
+    color: var(--secondary-bright-blue);
+  }
+  
+  .login-form{
+    display: flex;
+    flex-direction: column;
+    width: 500px;
+    height: 400px;
+    align-items: center;
+    justify-content: center;
+  }

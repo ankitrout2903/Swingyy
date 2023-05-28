@@ -1,0 +1,13 @@
+.register-container{
+    text-align: center;
+    color: var(--secondary-bright-blue);
+  }
+  
+  .register-form{
+    display: flex;
+    flex-direction: column;
+    width: 500px;
+    height: 600px;
+    align-items: center;
+    justify-content: center;
+  }
