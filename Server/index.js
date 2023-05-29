@@ -46,6 +46,7 @@ connection.query('SELECT * FROM user_table', function (error, results, fields) {
 });
 });
 
+
 // Set up Socket.IO server and define event handlers for real-time chat
 io.on("connection", (socket) => {
   socket.on("add-user", (userId) => {

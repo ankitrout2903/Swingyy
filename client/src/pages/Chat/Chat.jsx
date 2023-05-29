@@ -40,9 +40,6 @@ export default function Chat(){
         }
     };
 
-
-    
-
     useEffect(() => {
         fetchUser();
     }, []);
@@ -67,12 +64,14 @@ export default function Chat(){
         setCurChat(chat);
     }
 
+    
+
     return (
         <div className='chat-container'>
             {
                 curUser && 
                 <div className='chat-navbar'>
-                    <div className="chat-header">Hello,{curUser?.username}</div>
+                    <div className="chat-header">Logged in as: {curUser?.email}</div>
                     <button className="logout-btn" onClick={logout}>Logout</button>
                 </div>
             }
