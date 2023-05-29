@@ -22,7 +22,13 @@ const messageRoutes = require("./routes/messageRoutes");
 // Create an instance of the Express application
 
 const server = http.createServer(app);
-const io = socketIO(server);
+// const io = socketIO(server);
+const io = require("socket.io")(server, {
+  cors: {
+    origin: "http://localhost:3000",
+    methods: ["GET", "POST"],
+  },
+});
 
 // Set up middleware and configuration
 app.use(express.json());
@@ -54,7 +60,7 @@ io.on("connection", (socket) => {
 });
 
 // Start the server
-const port = process.env.PORT || 3000;
+const port = process.env.PORT || 3001;
 server.listen(port, () => {
   console.log(`Server connected on port: ${port}`);
 });
