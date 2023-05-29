@@ -115,8 +115,9 @@ export default function Login() {
     return (
         <div className="login-container">
             <h1>Welcome!</h1>
-            <h2>Enter your information to login</h2>
-            <form className="login-form" onSubmit={handleSubmit}>
+            <h2>Please continue to login</h2>
+            {/* <BsFillPersonFill className="form-icon"/> */}
+            {/* <form className="login-form" onSubmit={handleSubmit}>
                 <div className="form-row">
                     <BsFillPersonFill className="form-icon"/>
                     <input 
@@ -147,7 +148,7 @@ export default function Login() {
                 </div>
                 <span ><Link className="form-footer" to="/register">Press Here to Register Instead</Link></span>
 
-            </form>
+            </form> */}
             <button onClick={signInWithGoogle}>Sign in with Google</button>
             <ToastContainer/>
         </div>

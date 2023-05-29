@@ -84,20 +84,25 @@ module.exports.login = async (req, res, next) => {
 // Controller method to get all users except the current user
 module.exports.getAllUsers = async (req, res, next) => {
   try {
-    const { id } = req.params;
+    const { email } = req.params;
 
     // Retrieve all users except the current user
-    const selectQuery = 'SELECT id, email, username FROM user_table WHERE id <> ?';
-    connection.query(selectQuery, [id], (err, rows) => {
+    // const selectQuery = 'SELECT email, username , photo_url FROM swingyy.user_table WHERE email != ?';
+    
+    const selectQuery = 'SELECT * FROM swingyy.user_table;';
+    connection.query(selectQuery, [email], (err, rows) => {
       if (err) {
         console.error('Error retrieving users: ', err);
         return res.json([]);
       }
+      console.log(rows);
 
       // Sort the users by username in ascending order
       rows.sort((a, b) => a.username.localeCompare(b.username));
+      
 
       return res.json(rows);
+      
     });
   } catch (ex) {
     next(ex); // Pass the error to the next error-handling middleware

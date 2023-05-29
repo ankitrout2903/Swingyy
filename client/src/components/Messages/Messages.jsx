@@ -37,8 +37,8 @@ export default function Messages({curUser, curChat, socket}){
         console.log(curChat);
         if (msg.length > 0){
             const res = await axios.post(sendMsgRoute, {
-                from: curUser._id,
-                to: curChat.id,
+                from: curUser.email,
+                to: curChat.email,
                 message:msg,
                 createdAt: Date.now(),
             });
@@ -47,8 +47,8 @@ export default function Messages({curUser, curChat, socket}){
                 navigate('/login');
             }
             socket.current.emit("send-msg", {
-                to:curChat._id,
-                from:curUser._id,
+                to:curChat.email,
+                from:curUser.email,
                 type:"text",
                 message:msg,
             });
