@@ -11,7 +11,6 @@ const app = express();
 // Set up CORS to allow requests from the client
 app.use(cors({ origin: "http://localhost:3000", credentials: true }));
 
-
 // Load environment variables from the .env file
 require("dotenv").config();
 
@@ -46,7 +45,6 @@ connection.query('SELECT * FROM user_table', function (error, results, fields) {
   res.json(results);
 });
 });
-
 
 // Set up Socket.IO server and define event handlers for real-time chat
 io.on("connection", (socket) => {

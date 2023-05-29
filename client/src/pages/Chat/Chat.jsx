@@ -30,7 +30,7 @@ export default function Chat(){
     async function fetchData(){
         if (curUser){
            
-            const res = await axios.get(`${allUsersRoute}/${curUser._id}`);
+            const res = await axios.get(`${allUsersRoute}/${curUser.email}`);
             if (res.data.status === false){
                 localStorage.clear();
                 navigate('/login');
@@ -40,6 +40,9 @@ export default function Chat(){
         }
     };
 
+
+    
+
     useEffect(() => {
         fetchUser();
     }, []);
@@ -47,7 +50,7 @@ export default function Chat(){
     useEffect(() => {
         if (curUser){
             socket.current = io(host);
-            socket.current.emit("add-user", curUser._id);
+            socket.current.emit("add-user", curUser.email);
         }
     }, [curUser]);
 
@@ -69,7 +72,7 @@ export default function Chat(){
             {
                 curUser && 
                 <div className='chat-navbar'>
-                    <div className="chat-header">Hello, {curUser?.username}</div>
+                    <div className="chat-header">Hello,{curUser?.username}</div>
                     <button className="logout-btn" onClick={logout}>Logout</button>
                 </div>
             }

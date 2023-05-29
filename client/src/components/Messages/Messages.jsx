@@ -6,123 +6,126 @@ import {FaPaperPlane} from 'react-icons/fa';
 import './style.css';
 import {useNavigate} from 'react-router-dom';
 
-export default function Messages({curUser, curChat, socket}){
+export default function Messages({ curUser, curChat, socket }) {
     const [msg, setMsg] = useState("");
-    const [msgs,setMsgs] = useState([]);
-    const [arrivalMsg, setArrivalMsg] = useState(null);
+    const [msgs, setMsgs] = useState([]);
+    const [arrivalMsgs, setArrivalMsgs] = useState([]);
     const navigate = useNavigate();
     const scrollRef = useRef();
-
-    async function fetchData(){
-        if (curChat){
-            const res = await axios.post(getMsgsRoute, {
-                from: curUser._id,
-                to: curChat._id,
-            });
-            console.log(res.data);
-            if (res.data.status === false){
-                localStorage.clear();
-                navigate('/login');
-            }
-            setMsgs(res.data);
+  
+    async function fetchData() {
+      if (curChat) {
+        try {
+          const res = await axios.post(getMsgsRoute, {
+            from: curUser.email,
+            to: curChat.email,
+          });
+          if (res.data.status === false) {
+            localStorage.clear();
+            navigate('/login');
+          }
+          setMsgs(res.data);
+        } catch (error) {
+          console.error("Error fetching messages:", error);
         }
+      }
     }
-
+  
     useEffect(() => {
-        fetchData();
+      fetchData();
     }, [curChat]);
-
-    async function handleSend(e){
-        e.preventDefault();
-        console.log(curChat);
-        if (msg.length > 0){
-            const res = await axios.post(sendMsgRoute, {
-                from: curUser.email,
-                to: curChat.email,
-                message:msg,
-                createdAt: Date.now(),
-            });
-            if (res.data.status === false){
-                localStorage.clear();
-                navigate('/login');
-            }
-            socket.current.emit("send-msg", {
-                to:curChat.email,
-                from:curUser.email,
-                type:"text",
-                message:msg,
-            });
-            const messages = [...msgs];
-            messages.push({fromSelf:true,message:msg});
-            setMsgs(messages);
-            setMsg("");
+  
+    async function handleSend(e) {
+      e.preventDefault();
+      if (msg.length > 0) {
+        try {
+          const res = await axios.post(sendMsgRoute, {
+            from: curUser.email,
+            to: curChat.email,
+            message: msg,
+            createdAt: Date.now(),
+          });
+          if (res.data.status === false) {
+            localStorage.clear();
+            navigate('/login');
+          }
+          socket.current.emit("send-msg", {
+            to: curChat.email,
+            from: curUser.email,
+            type: "text",
+            message: msg,
+          });
+          const newMsg = { fromSelf: true, message: msg };
+          setMsgs((prevMsgs) => [...prevMsgs, newMsg]);
+          setMsg("");
+        } catch (error) {
+          console.error("Error sending message:", error);
         }
-        
+      }
     }
-
+  
     useEffect(() => {
-        if (socket.current){
-            socket.current.on("msg-recieved", (msg) => {
-                if(msg.type === "text")
-                setArrivalMsg({fromSelf:false, message:msg});
-                
-            })
-        }
-    }, []);
-
-
+      if (socket.current) {
+        socket.current.on("msg-recieved", (msg) => {
+          if (msg.type === "text") {
+            setArrivalMsgs((prevArrivalMsgs) => [...prevArrivalMsgs, msg]);
+          }
+        });
+      }
+    }, [socket.current]);
+  
     useEffect(() => {
-        arrivalMsg && setMsgs((oldMsgs) => [...oldMsgs, arrivalMsg]);
-
-    }, [arrivalMsg]);
-    
+      setMsgs((prevMsgs) => [...prevMsgs, ...arrivalMsgs]);
+      setArrivalMsgs([]);
+    }, [arrivalMsgs]);
+  
     useEffect(() => {
-        scrollRef.current?.scrollIntoView({behaviour: "smooth"});
+      scrollRef.current?.scrollIntoView({ behavior: "smooth" });
     }, [msgs]);
-
+  
     return (
-        <div className='messages-container'>
-            {
-            curChat && (
-            <div className='message-area'>
+      <div className='messages-container'>
+        {curChat && (
+          <div className='message-area'>
             <div className='messages scroll-style'>
-                {
-                    msgs.map((message) => {
-                        return (
-                            <div ref={scrollRef} key={uuidv4()}> 
-                                <div className={`message ${message.fromSelf ? "sent" : "recieved"}`}>
-                                    <p className='message-text'>{message.message}</p>
-                                    {
-                                        message.time &&
-                                        <div className='message-date'> 
-                                            <p>{message.time.substring(5,7)} 
-                                            -{message.time.substring(8,10)}
-                                            -{message.time.substring(0,4)}
-                                            : {message.time.substring(11,16)}
-                                            </p>
-                                        </div>
-                                    }
-                                </div>
-
-                            </div>
-                        );
-                    })
-                }
+              <div ref={scrollRef}>
+                {msgs.map((message) => (
+                  <div key={message.id ?? uuidv4()}>
+                    <div
+                      className={`message ${message.fromSelf ? "sent" : "received"}`}
+                    >
+                      <p className='message-text'>{message.message}</p>
+                      {message.time && (
+                        <div className='message-date'>
+                          <p>
+                            {message.time.substring(5, 7)}-
+                            {message.time.substring(8, 10)}-
+                            {message.time.substring(0, 4)}:
+                            {message.time.substring(11, 16)}
+                          </p>
+                        </div>
+                      )}
+                    </div>
+                  </div>
+                ))}
+              </div>
             </div>
             <form className='message-form' onSubmit={handleSend}>
-                <input 
-                className="message-input"
-                type="text"
-                placeholder="Enter Message"
-                name="message"
+              <input
+                className='message-input'
+                type='text'
+                placeholder='Enter Message'
+                name='message'
                 value={msg}
                 onChange={(e) => setMsg(e.target.value)}
-                />
-                <button className='message-btn'><FaPaperPlane/></button>
+              />
+              <button className='message-btn' type='submit'>
+                <FaPaperPlane />
+              </button>
             </form>
-            </div>
-            )
-        }
-        </div>
-    )
-}
+          </div>
+        )}
+      </div>
+    );
+  }
+  
