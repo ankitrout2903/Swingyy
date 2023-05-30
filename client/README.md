@@ -30,7 +30,7 @@ Copy code
 cd chat-app
 Install the dependencies for both the frontend and backend:
 
-Configure dotenv file accordingly if you want it to run on your local machine
+Configure dotenv and firebase.config file accordingly if you want it to run on your local machine
 
 shell
 Copy code
