@@ -30,6 +30,8 @@ Copy code
 cd chat-app
 Install the dependencies for both the frontend and backend:
 
+Configure dotenv file accordingly if you want it to run on your local machine
+
 shell
 Copy code
 # Install frontend dependencies
@@ -47,7 +49,7 @@ Start the development server:
 
 shell
 Copy code
-# Start the backend server (runs on http://localhost:5000)
+# Start the backend server (runs on http://localhost:3001)
 cd backend
 npm start
 
