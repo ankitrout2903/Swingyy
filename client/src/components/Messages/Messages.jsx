@@ -95,16 +95,14 @@ export default function Messages({ curUser, curChat, socket }) {
                       className={`message ${message.fromSelf ? "sent" : "received"}`}
                     >
                       <p className='message-text'>{message.message}</p>
-                      {message.time && (
-                        <div className='message-date'>
-                          <p>
-                            {message.time.substring(5, 7)}-
-                            {message.time.substring(8, 10)}-
-                            {message.time.substring(0, 4)}:
-                            {message.time.substring(11, 16)}
-                          </p>
-                        </div>
-                      )}
+                     {message.time && (
+  <div className='message-date'>
+    <p>
+      {new Date(parseInt(message.time)).toLocaleString()}
+    </p>
+  </div>
+)}
+
                     </div>
                   </div>
                 ))}
