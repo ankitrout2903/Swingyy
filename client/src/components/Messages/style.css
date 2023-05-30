@@ -49,10 +49,13 @@
   font-size: 20px;
 }
 
+
 .message-date {
   font-size: 12px;
-  display: none;
+  color: var(--primary-navy-blue);
+  text-align: right;
 }
+
 
 .message-form {
   width: 100%;
