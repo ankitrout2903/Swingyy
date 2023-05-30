@@ -45,6 +45,8 @@ Create a MySQL database and update the connection details in the backend/config/
 Update the Socket.IO server URL in the frontend/src/utils/socket.js file.
 Start the development server:
 
+Configure dotenv file according to your credentials
+
 shell
 Copy code
 # Start the backend server (runs on http://localhost:5000)
@@ -64,9 +66,7 @@ In the conversation view, you can send and receive messages in real-time.
 New messages will appear instantly, and the chat will be scrolled to the latest message.
 You can mark messages as seen or unseen by clicking on them.
 You can log out by clicking the "Logout" button in the top right corner.
-Screenshots
 
-Chat App Screenshot
 
 
 License
