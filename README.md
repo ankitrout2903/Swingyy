@@ -17,12 +17,19 @@ This is a simple chat application that allows users to send and receive messages
 - Frontend: React, React Router, Axios, Socket.IO Client
 - Backend: Node.js, Express.js, MySQL, Socket.IO
 - Styling: CSS
+- Cloud Services: Google Cloud Platform
+    - Cloud Build: Used for building and deploying the application.
+    - Cloud Run: Used for running the application in a serverless environment.
+    - Cloud SQL: Used as the MySQL database for storing chat data.
+    - Firebase: Used for Google Authentication.
+    - Artifact Registry: Used for storing Docker container images.
+    - Cloud Storage: Used for storing profile pictures.
 
 ## Installation
 
 1. Clone the repository:
 
-   ```shell
+  
    git clone https://github.com/your-username/chat-app.git
 Navigate to the project directory:
 
