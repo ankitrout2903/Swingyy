@@ -9,7 +9,7 @@ const connection = require("./db");
 const app = express();
 
 // Set up CORS to allow requests from the client
-app.use(cors({ origin: "http://localhost:3000", credentials: true }));
+app.use(cors({ origin: "https://swingyy-c0af7.web.app", credentials: true }));
 
 // Load environment variables from the .env file
 require("dotenv").config();
@@ -17,6 +17,7 @@ require("dotenv").config();
 // Import route files
 const userRoutes = require("./routes/userRoutes");
 const messageRoutes = require("./routes/messageRoutes");
+const moodRoutes = require("./routes/moodRoutes");
 
 // Create an instance of the Express application
 
@@ -24,7 +25,7 @@ const server = http.createServer(app);
 // const io = socketIO(server);
 const io = require("socket.io")(server, {
   cors: {
-    origin: "http://localhost:3000",
+    origin: "https://swingyy-c0af7.web.app",
     methods: ["GET", "POST"],
   },
 });
@@ -37,6 +38,7 @@ app.use(cookieParser());
 
 app.use("/api/auth", userRoutes);
 app.use("/api/messages", messageRoutes);
+app.use("/api/mood", moodRoutes);
 app.get("/api/test", (req, res) => {
 connection.query('SELECT * FROM user_table', function (error, results, fields) {
   if (error) throw error;
@@ -59,7 +61,7 @@ io.on("connection", (socket) => {
 });
 
 // Start the server
-const port = process.env.PORT || 3001;
+const port = process.env.PORT || 8080;
 server.listen(port, () => {
   console.log(`Server connected on port: ${port}`);
 });
