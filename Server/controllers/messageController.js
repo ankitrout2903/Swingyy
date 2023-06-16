@@ -30,12 +30,12 @@ module.exports.getMessage = async (req, res, next) => {
   try {
     const { from, to } = req.body;
 
-    // Find messages between the specified users, sorted by updatedAt in ascending order
+    // Find messages between the specified sender and receiver, sorted by createdAt in ascending order
     const selectQuery = `
       SELECT m.message AS message, m.createdAt AS time,
         (m.sender_mail = ?) AS fromSelf
       FROM message_table m
-      WHERE (m.sender_mail = ? OR m.sender_mail = ?)
+      WHERE (m.sender_mail = ? AND m.reciever_mail = ?)
       ORDER BY m.createdAt ASC;
     `;
     const values = [from, from, to];

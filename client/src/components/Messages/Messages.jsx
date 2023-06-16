@@ -1,8 +1,8 @@
-import { useState, useEffect, useRef } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import axios from 'axios';
 import { v4 as uuidv4 } from 'uuid';
 import { getMsgsRoute, sendMsgRoute } from '../../utils/APIRoutes';
-import { FaPaperPlane } from 'react-icons/fa';
+import { FaPaperPlane, FaSmile } from 'react-icons/fa';
 import './style.css';
 import { useNavigate } from 'react-router-dom';
 
@@ -10,6 +10,8 @@ export default function Messages({ curUser, curChat, socket }) {
   const [msg, setMsg] = useState("");
   const [msgs, setMsgs] = useState([]);
   const [arrivalMsgs, setArrivalMsgs] = useState([]);
+  const [isMoodButtonClicked, setIsMoodButtonClicked] = useState(false);
+  const [selectedEmoji, setSelectedEmoji] = useState("");
   const navigate = useNavigate();
   const scrollRef = useRef();
 
@@ -42,7 +44,7 @@ export default function Messages({ curUser, curChat, socket }) {
         const res = await axios.post(sendMsgRoute, {
           from: curUser.email,
           to: curChat.email,
-          message: msg,
+          message: msg + selectedEmoji, // Include the selected emoji in the message
           createdAt: Date.now(),
         });
         if (res.data.status === false) {
@@ -53,7 +55,7 @@ export default function Messages({ curUser, curChat, socket }) {
           to: curChat.email,
           from: curUser.email,
           type: "text",
-          message: msg,
+          message: msg + selectedEmoji, // Include the selected emoji in the message
         });
         const newMsg = { fromSelf: true, message: msg };
         setMsgs((prevMsgs) => [...prevMsgs, newMsg]);
@@ -83,6 +85,50 @@ export default function Messages({ curUser, curChat, socket }) {
     scrollRef.current?.scrollIntoView({ behavior: "smooth" });
   }, [msgs]);
 
+  const handleMoodButtonClick = () => {
+    setIsMoodButtonClicked((prevState) => !prevState);
+  };
+
+  const handleEmojiSelect = (emoji) => {
+    setSelectedEmoji(emoji);
+    setIsMoodButtonClicked(false);
+  };
+
+  const renderRadialMenu = () => {
+    if (isMoodButtonClicked) {
+      const emojiOptions = ['🙂', '😃', '😊', '😄', '😍', '😎'];
+  
+      const menuItems = emojiOptions.map((option, index) => (
+        <button
+          key={index}
+          onClick={() => handleEmojiSelect(option)}
+          className="radial-menu-item"
+          style={{
+            transform: `rotate(${(90 / emojiOptions.length) * index}deg) translateY(-100px) rotate(-${(90 / emojiOptions.length) * index}deg)`,
+          }}
+        >
+          {option}
+        </button>
+      ));
+  
+      return (
+        <div className="radial-menu">
+          {/* <button className="mood-btn" onClick={handleMoodButtonClick}>
+            <FaPaperPlane />
+          </button> */}
+          {menuItems}
+        </div>
+      );
+    }
+  
+    // return (
+    //   <button className="mood-btn" onClick={handleMoodButtonClick}>
+    //     <FaPaperPlane />
+    //   </button>
+    // );
+  };
+  
+
   return (
     <div className='messages-container'>
       {curChat && (
@@ -102,13 +148,24 @@ export default function Messages({ curUser, curChat, socket }) {
                         </p>
                       </div>
                     )}
-
                   </div>
                 </div>
               ))}
             </div>
           </div>
+          {renderRadialMenu()} {/* Render the radial menu */}
           <form className='message-form' onSubmit={handleSend}>
+            {/* mood button */}
+            <button
+              className='mood-btn'
+              type='button'
+              onClick={handleMoodButtonClick}
+            >
+              <FaSmile />
+            </button>
+            {/* message input */}
+
+            
             <input
               className='message-input'
               type='text'
