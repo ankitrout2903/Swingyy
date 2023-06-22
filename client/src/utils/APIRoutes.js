@@ -5,3 +5,5 @@ export const loginRoute = `${host}/api/auth/login`;
 export const allUsersRoute = `${host}/api/auth/allUsers`;
 export const sendMsgRoute = `${host}/api/messages/addmsg`;
 export const getMsgsRoute = `${host}/api/messages/getmsg`;
+export const getMoodRoute = `${host}/api/mood/getmoods`;
+export const addMoodRoute = `${host}/api/mood/addmood`;
