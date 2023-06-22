@@ -35,7 +35,7 @@ module.exports.getMessage = async (req, res, next) => {
       SELECT m.message AS message, m.createdAt AS time,
         (m.sender_mail = ?) AS fromSelf
       FROM message_table m
-      WHERE (m.sender_mail = ? AND m.reciever_mail = ?)
+      WHERE (m.sender_mail = ? OR m.sender_mail = ?)
       ORDER BY m.createdAt ASC;
     `;
     const values = [from, from, to];
