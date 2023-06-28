@@ -70,7 +70,7 @@ export default function Messages({ curUser, curChat, socket }) {
 
   useEffect(() => {
     if (socket.current) {
-      socket.current.on('msg-recieved', (msg) => {
+      socket.current.on("msg-received", (msg) => {
         if (msg.type === 'text') {
           setArrivalMsgs((prevArrivalMsgs) => [...prevArrivalMsgs, msg]);
         }
