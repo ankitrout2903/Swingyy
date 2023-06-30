@@ -76,7 +76,7 @@ export default function Messages({ curUser, curChat, socket }) {
         }
       });
     }
-  }, [socket.current]);
+  }, []);
 
   useEffect(() => {
     setMsgs((prevMsgs) => [...prevMsgs, ...arrivalMsgs]);
