@@ -71,7 +71,7 @@ export default function Chat(){
             {
                 curUser && 
                 <div className='chat-navbar'>
-                    <div className="chat-header">Logged in as: {curUser?.email}</div>
+                    <div className="chat-header">Logged in as: {curUser?.displayName}</div>
                     <button className="logout-btn" onClick={logout}>Logout</button>
                 </div>
             }
