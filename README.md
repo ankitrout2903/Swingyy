@@ -35,6 +35,7 @@ Swingyy is a robust chat application that enables real-time messaging between us
 - Express.js
 - MySQL
 - Socket.IO
+- Docker
 
 ### Styling
 
@@ -48,6 +49,7 @@ Swingyy is a robust chat application that enables real-time messaging between us
 - Firebase: Google Authentication
 - Artifact Registry: Docker container registry
 - Cloud Storage: File storage
+- Docker
 
 ## Installation
 
