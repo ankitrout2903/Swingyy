@@ -69,13 +69,13 @@ Swingyy is a robust chat application that enables real-time messaging between us
 
    - Frontend:
      ```bash
-     cd frontend
-     npm install
+     cd client
+     npm start
      ```
    - Backend:
      ```bash
-     cd ../backend
-     npm install
+     cd client
+     npm start
      ```
 
 4. **Configuration**
