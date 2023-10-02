@@ -8,6 +8,7 @@ import axios from 'axios';
 import googleIcon from './google-icon.png.png'; // Import the Google icon image
 import './style.css';
 import { checkUserRoute, loginRoute, registerRoute } from "../../utils/APIRoutes";
+import {FcGoogle} from 'react-icons/fc'
 
 export default function Login() {
   const navigate = useNavigate();
@@ -91,11 +92,31 @@ export default function Login() {
 
   return (
     <div className="login-container">
-      <h1>Welcome!</h1>
-      <h2>Please continue to login</h2>
-      <button className="google-signin-btn" onClick={signInWithGoogle}>
-        <img className="google-icon" src={googleIcon} alt="Google Icon" />
-      </button>
+      <h2>Login</h2>
+      <form>
+        <div className="input-container">
+          <label htmlFor="username">Username:</label>
+          <input
+            type="text"
+            id="username"
+            name="username"
+            placeholder="Email"
+            required
+          />
+        </div>
+        <div className="input-container">
+          <label htmlFor="password">Password:</label>
+          <input
+            type="password"
+            id="password"
+            name="password"
+            placeholder="Password"
+            required
+          />
+        </div>
+        <button type="submit">Login</button>
+      </form>
+        <button onClick={() => signInWithGoogle()} className="google-login"><FcGoogle></FcGoogle> Continue With Google</button>
       <ToastContainer />
     </div>
   );
