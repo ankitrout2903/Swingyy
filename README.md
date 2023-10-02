@@ -55,48 +55,48 @@ Swingyy is a robust chat application that enables real-time messaging between us
 
 1. **Clone the Repository**
 
-    ```bash
-    git clone https://github.com/your-username/chat-app.git
-    ```
+   ```bash
+   git clone https://github.com/your-username/Swingyy.git
+   ```
 
 2. **Navigate to Project Directory**
 
-    ```bash
-    cd chat-app
-    ```
+   ```bash
+   cd chat-app
+   ```
 
 3. **Install Dependencies**
 
-    - Frontend:
-        ```bash
-        cd frontend
-        npm install
-        ```
-    - Backend:
-        ```bash
-        cd ../backend
-        npm install
-        ```
+   - Frontend:
+     ```bash
+     cd frontend
+     npm install
+     ```
+   - Backend:
+     ```bash
+     cd ../backend
+     npm install
+     ```
 
 4. **Configuration**
 
-    - Update MySQL connection details in `backend/config/db.js`.
-    - Update Socket.IO server URL in `frontend/src/utils/socket.js`.
+   - Update MySQL connection details in `backend/config/db.js`.
+   - Update Socket.IO server URL in `frontend/src/utils/socket.js`.
 
 5. **Start Development Servers**
 
-    - Backend:
-        ```bash
-        cd backend
-        npm start
-        ```
-    - Frontend:
-        ```bash
-        cd ../frontend
-        npm start
-        ```
+   - Backend:
+     ```bash
+     cd backend
+     npm start
+     ```
+   - Frontend:
+     ```bash
+     cd ../frontend
+     npm start
+     ```
 
-    Open `http://localhost:3000` in your browser.
+   Open `http://localhost:3000` in your browser.
 
 ## Usage
 
