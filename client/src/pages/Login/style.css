@@ -1,67 +1,64 @@
-.login-container {
-  width: 400px;
-  max-width: 50% vw;
-  margin: 0 auto;
-  padding: 20px;
-  border: 1px solid #ccc;
-  border-radius: 5px;
-  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
-
-.login-container h2 {
-  text-align: center;
-  font-weight: 900;
-  font-size: 35px;
-  margin: 30px 0;
-  color: #0056b3;
+body{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background: url(background_image.jpg) no-repeat fixed;
+    background-size: cover;
+    background-position: center;
 }
-
-.input-container {
-  margin-bottom: 15px;
-  font-size: 1.2rem;
-
+.wrapper{
+    position: relative;
+    width: 420px;
+    right: 10px;
+    background: transparent;
+    border:2px solid rgba(255, 255, 255, .2);
+    backdrop-filter: blur(20px);
+    box-shadow: 0 0 10px rgba(0, 0, 0, .2);
+    color: #fff;
+    border-radius: 10px;
+    padding: 30px 40px;
 }
-
-label {
-  display: block;
-  margin-bottom: 5px;
+.wrapper h1{
+    font-size: 36px;
+    text-align: center;
 }
-
-input {
-  width: 100%;
-  padding: 15px;
-  border: 1px solid #ccc;
-  border-radius: 5px;
-  font-size: 20px;
+.wrapper h1 span {
+  color: rgb(0, 255, 234);
 }
-
-button {
-  font-size: 1.3rem;
-  width: 100%;
-  padding: 15px;
-  background-color: #007bff;
-  color: #fff;
-  border: none;
-  border-radius: 5px;
-  cursor: pointer;
+.wrapper .description{
+    width: 100%;
+    height: 150px;
+    position: relative;
+    margin-top: 20px;
+    margin-bottom: 20px;
 }
-
-button:hover {
-  background-color: #0056b3;
+.wrapper .btn{
+    max-width: 100%;
+    display: block;
+    margin: auto;
+    width: 60px;
+    height: 58px;
+    background: #fff;
+    border: none;
+    outline: none;
+    border-radius: 40px;
+    box-shadow: 0 0 20px rgb(0, 255, 234);
+    cursor: pointer;
+    font-size: 50px;
 }
-
-
-.google-login{
-  background-color: transparent;
-  margin: 15px 0;
-  border: 1px solid blue;
-  color: #0056b3;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  gap: 5px;
+.wrapper .btn:hover {
+  scale: 1.1;
 }
-
-.google-login:hover{
-  background: #000;
+.wrapper .text{
+    font-size: 15px;
+    font-weight: 700;
+    text-align: center;
+    margin-top: 10px;
 }

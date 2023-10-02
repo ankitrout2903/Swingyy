@@ -54,33 +54,29 @@ export default function Login() {
   }, []);
 
   return (
-    <div className="login-container">
-      <h2>Login</h2>
-      <form>
-        <div className="input-container">
-          <label htmlFor="username">Username:</label>
-          <input
-            type="text"
-            id="username"
-            name="username"
-            placeholder="Email"
-            required
-          />
+    <div class="wrapper">
+      <span class="borderLine"></span>
+      <h1>
+        <span>S</span>wingyy
+      </h1>
+      <div class="description">
+        <p>
+          Swingyy is a real-time chat application that allows users to connect
+          and communicate with their friends instantly. With Swingyy, you can
+          send and receive messages in real-time, mark messages as seen or
+          unseen, and stay updated with the online/offline status of your
+          friends.
+        </p>
+      </div>
+      <button type="submit" class="btn" onClick={() => signInWithGoogle()}>
+        <div>
+          <FcGoogle />
         </div>
-        <div className="input-container">
-          <label htmlFor="password">Password:</label>
-          <input
-            type="password"
-            id="password"
-            name="password"
-            placeholder="Password"
-            required
-          />
-        </div>
-        <button type="submit">Login</button>
-      </form>
-        <button onClick={() => signInWithGoogle()} className="google-login"><FcGoogle></FcGoogle> Continue With Google</button>
-      <ToastContainer />
+      </button>
+
+      <div class="text">
+        <p>Login Now</p>
+      </div>
     </div>
   );
 }
