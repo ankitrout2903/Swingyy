@@ -22,8 +22,9 @@ This is a simple chat application that allows users to send and receive messages
 1. Clone the repository:
 
    ```shell
-   git clone https://github.com/your-username/chat-app.git
-Navigate to the project directory:
+   git clone https://github.com/your-username/Swingyy.git
+   Navigate to the project directory:
+   ```
 
 shell
 Copy code
@@ -34,11 +35,14 @@ Configure dotenv and firebase.config file accordingly if you want it to run on y
 
 shell
 Copy code
+
 # Install frontend dependencies
+
 cd frontend
 npm install
 
 # Install backend dependencies
+
 cd ../backend
 npm install
 Configuration:
@@ -49,11 +53,14 @@ Start the development server:
 
 shell
 Copy code
+
 # Start the backend server (runs on http://localhost:3001)
+
 cd backend
 npm start
 
 # Start the frontend development server (runs on http://localhost:3000)
+
 cd ../frontend
 npm start
 Open your browser and visit http://localhost:3000 to access the chat app.
@@ -71,7 +78,6 @@ Screenshots
 Chat App Screenshot
 ![WhatsApp Image 2023-05-30 at 02 33 36](https://github.com/ankitrout2903/Swingyy2/assets/88599131/164577c8-77f5-4d13-88cb-078da8907e5b)
 
-
 License
 This project is licensed under the MIT License.
 
@@ -79,6 +85,3 @@ vbnet
 Copy code
 
 Feel free to customize and enhance the README file based on your specific chat app's features and requirements.
-
-
-
