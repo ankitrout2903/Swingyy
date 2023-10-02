@@ -17,6 +17,7 @@ require("dotenv").config();
 // Import route files
 const userRoutes = require("./routes/userRoutes");
 const messageRoutes = require("./routes/messageRoutes");
+const friendsRoutes = require("./routes/friendsRoutes");
 
 // Create an instance of the Express application
 
@@ -37,6 +38,7 @@ app.use(cookieParser());
 
 app.use("/api/auth", userRoutes);
 app.use("/api/messages", messageRoutes);
+app.use("/api/friends", friendsRoutes);
 app.get("/api/test", (req, res) => {
 connection.query('SELECT * FROM user_table', function (error, results, fields) {
   if (error) throw error;
