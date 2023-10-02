@@ -4,3 +4,7 @@ export const loginRoute = `${host}/api/auth/login`;
 export const allUsersRoute = `${host}/api/auth/allUsers`;
 export const sendMsgRoute = `${host}/api/messages/addmsg`;
 export const getMsgsRoute = `${host}/api/messages/getmsg`;
+export const checkUserRoute = `${host}/api/auth/getUser`; //to check if the user exists in the database
+export const addFriendsRoute = `${host}/api/friends/addFriend`;
+export const getFriendsRoute = `${host}/api/friends/getFriends`;
+export const getPossibleFriendsRoute = `${host}/api/friends/getPossibleFriends`; //to get all the users except the current user and friends of the current user.
