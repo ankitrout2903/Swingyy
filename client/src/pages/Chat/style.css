@@ -76,6 +76,7 @@ body {
   .chat-navbar {
     height: 10vh;
     font-size: 20px;
+  
   }
 
   .chat-main {
@@ -83,13 +84,14 @@ body {
   }
 
   .logout-btn {
-    width: 20%;
-    height: 80%;
-    font-size: 16px;
+    margin-right: 0px;
+    width: 30%;
+    height: 50%;
+    font-size: 15px;
   }
 
   .chat-header {
-    font-size: 20px;
+    font-size: 15px;
   }
 
   .chat-main {
