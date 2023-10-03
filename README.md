@@ -1,8 +1,24 @@
-# Swingyy: Real-Time Chat Application
+<h1 align="center">Swingyy: Real-Time Chat Application 🚀</h1>
+<div align="center">
+  <img src="https://img.shields.io/github/repo-size/metafy-social/eth-unwrapped?style=for-the-badge" />
+  <img src="https://img.shields.io/github/issues/metafy-social/eth-unwrapped?style=for-the-badge" />
+  <img src="https://img.shields.io/github/issues-closed-raw/metafy-social/eth-unwrapped?style=for-the-badge" />
+  <br>
+  <img src="https://img.shields.io/github/forks/metafy-social/eth-unwrapped?style=for-the-badge" />
+  <img src="https://img.shields.io/github/issues-pr/metafy-social/eth-unwrapped?style=for-the-badge" />
+  <img src="https://img.shields.io/github/issues-pr-closed-raw/metafy-social/eth-unwrapped?style=for-the-badge" />
+  <br>
+  <img src="https://img.shields.io/github/stars/metafy-social/eth-unwrapped?style=for-the-badge" />
+  <img src="https://img.shields.io/github/last-commit/metafy-social/eth-unwrapped?style=for-the-badge" />
+  <img src="https://img.shields.io/github/commit-activity/y/metafy-social/eth-unwrapped?style=for-the-badge" />
+  <br>
+</div>
+<div align="center">
+  <p>Swingyy is a robust chat application that enables real-time messaging between users. It comes with a range of features including user authentication, friends list management, and message status tracking.</p>
+</div>
 
-Swingyy is a robust chat application that enables real-time messaging between users. It comes with a range of features including user authentication, friends list management, and message status tracking.
 
-## Table of Contents
+## Table of Contents 📚
 
 - [Features](#features)
 - [Technologies](#technologies)
@@ -11,7 +27,7 @@ Swingyy is a robust chat application that enables real-time messaging between us
 - [Screenshots](#screenshots)
 - [License](#license)
 
-## Features
+## Features 🌟
 
 - **User Authentication**: Sign up, log in, and log out functionalities.
 - **Friends List**: View and manage your list of friends.
@@ -20,7 +36,7 @@ Swingyy is a robust chat application that enables real-time messaging between us
 - **User Status**: Monitor the online/offline status of friends.
 - **Profile Management**: Upload and display your profile picture.
 
-## Technologies
+## Technologies 💻
 
 ### Frontend
 
@@ -37,11 +53,11 @@ Swingyy is a robust chat application that enables real-time messaging between us
 - Socket.IO
 - Docker
 
-### Styling
+### Styling 🎨
 
 - CSS
 
-### Cloud Services (Google Cloud Platform)
+### Cloud Services (Google Cloud Platform) ☁️
 
 - Cloud Build: CI/CD pipeline
 - Cloud Run: Serverless deployment
@@ -49,7 +65,7 @@ Swingyy is a robust chat application that enables real-time messaging between us
 - Firebase: Google Authentication
 - Artifact Registry: Docker container registry
 - Cloud Storage: File storage
-- Docker
+- Docker 🐳
 
 ## Installation
 
@@ -77,6 +93,7 @@ Swingyy is a robust chat application that enables real-time messaging between us
      cd Server
      npm install
      ```
+
 
 4. **Configuration**
 
@@ -111,6 +128,13 @@ Swingyy is a robust chat application that enables real-time messaging between us
 
 ![Chat Interface](https://github.com/ankitrout2903/Swingyy2/assets/88599131/164577c8-77f5-4d13-88cb-078da8907e5b.png)
 ![Additional Screenshot](https://github.com/ankitrout2903/Swingyy/assets/88599131/1031d934-5db1-416e-bec3-d62c6d8ce476.png)
+
+
+<div align="center">
+  <a href="https://github.com/ankitrout2903/Swingyy/graphs/contributors">
+    <img src="https://contrib.rocks/image?repo=ankitrout2903/Swingyy" />
+  </a>
+</div>
 
 ## License
 
