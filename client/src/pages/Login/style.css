@@ -15,7 +15,7 @@ body {
 }
 .wrapper {
   position: relative;
-  width: 100%;
+  width: 50%;
   right: 10px;
   top: 10px;
   background: transparent;
@@ -68,4 +68,9 @@ body {
   display: flex;
   justify-content: space-around;
   align-items: center;
+}
+@media screen and (max-width: 800px) {
+  .wrapper {
+    width: 100%;
+  }
 }
