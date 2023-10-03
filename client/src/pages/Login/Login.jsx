@@ -8,9 +8,9 @@ import axios from 'axios';
 import googleIcon from './google-icon.png.png'; // Import the Google icon image
 import './style.css';
 import { checkUserRoute, loginRoute, registerRoute } from "../../utils/APIRoutes";
-import {FcGoogle} from 'react-icons/fc'
+import { FcGoogle } from 'react-icons/fc'
 
-export default function Login() {
+export default function Login () {
   const navigate = useNavigate();
   const provider = new GoogleAuthProvider();
   var username = null;
@@ -27,7 +27,7 @@ export default function Login() {
     theme: "colored",
   };
 
-  async function validate({ username, uid, password, mail}) {
+  async function validate ({ username, uid, password, mail }) {
     existing = await axios.post(checkUserRoute, { //check if the user exists
       mail,
     }, {
@@ -57,7 +57,7 @@ export default function Login() {
   const signInWithGoogle = async () => {
     signInWithPopup(auth, provider)
       .then((result) => {
-        console.log('in results:'+result);
+        console.log('in results:' + result);
         console.log(result.user);
         user = result.user;
         uid = user.uid;
@@ -105,14 +105,30 @@ export default function Login() {
           friends.
         </p>
       </div>
-      <button type="submit" class="btn" onClick={() => signInWithGoogle()}>
+      <div className='signIn-container'>
         <div>
-          <FcGoogle />
-        </div>
-      </button>
+          <button type="submit" class="btn" onClick={ () => signInWithGoogle() }>
+            <div>
+              <FcGoogle />
+            </div>
+          </button>
 
-      <div class="text">
-        <p>Login Now</p>
+          <div class="text">
+            <p>Login Now</p>
+          </div>
+        </div>
+
+        <div>
+          <button type="submit" class="btn" >
+            <div>
+              <FcGoogle />
+            </div>
+          </button>
+
+          <div class="text">
+            <p>Sign up</p>
+          </div>
+        </div>
       </div>
     </div>
   );
