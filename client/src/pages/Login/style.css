@@ -15,8 +15,9 @@ body {
 }
 .wrapper {
   position: relative;
-  width: 420px;
+  width: 100%;
   right: 10px;
+  top: 10px;
   background: transparent;
   border: 2px solid rgba(255, 255, 255, 0.2);
   backdrop-filter: blur(20px);
@@ -34,7 +35,7 @@ body {
 }
 .wrapper .description {
   width: 100%;
-  height: 150px;
+  height: 100%;
   position: relative;
   margin-top: 20px;
   margin-bottom: 20px;
