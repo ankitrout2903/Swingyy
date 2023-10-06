@@ -59,7 +59,7 @@ body {
   justify-content: center;
   align-items: center;
   /* font-size: 20px; */
-  color: var(--primary-navy-blue);
+  color: var(black);
   background: radial-gradient(
     circle,
     rgb(243, 208, 208) 0%,
@@ -76,7 +76,6 @@ body {
   .chat-navbar {
     height: 10vh;
     font-size: 20px;
-  
   }
 
   .chat-main {
