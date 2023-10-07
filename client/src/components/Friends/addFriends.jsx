@@ -1,25 +1,30 @@
-import React, { useState, useEffect } from 'react';
-import { addFriendsRoute, getPossibleFriendsRoute } from '../../utils/APIRoutes';
-import axios from 'axios';
+import React, { useState, useEffect } from "react";
+import {
+  addFriendsRoute,
+  getPossibleFriendsRoute,
+} from "../../utils/APIRoutes";
+import axios from "axios";
 
 /**
  * I am sorry I haven't done css on this, I am not a UI person.
- * @param {*} param0 
- * @returns 
+ * @param {*} param0
+ * @returns
  */
 const FriendsPopup = ({ userId }) => {
   const [showPopup, setShowPopup] = useState(false);
   const [potentialFriends, setPotentialFriends] = useState([]);
   const [selectedFriends, setSelectedFriends] = useState([]);
-  
+
   // Fetch potential friends
   useEffect(() => {
     const fetchPotentialFriends = async () => {
       try {
-        const response = await axios.get(`${getPossibleFriendsRoute}/${userId}`);
+        const response = await axios.get(
+          `${getPossibleFriendsRoute}/${userId}`
+        );
         setPotentialFriends(response.data.friends);
       } catch (error) {
-        console.error('Error fetching potential friends:', error);
+        console.error("Error fetching potential friends:", error);
       }
     };
     fetchPotentialFriends();
@@ -40,8 +45,8 @@ const FriendsPopup = ({ userId }) => {
 
   const addFriends = async () => {
     try {
-      console.log('Adding friends:', selectedFriends);
-      console.log('userId:', userId);
+      console.log("Adding friends:", selectedFriends);
+      console.log("userId:", userId);
       const friendId = selectedFriends[0];
       await axios.post(`${addFriendsRoute}`, {
         from: userId,
@@ -51,7 +56,7 @@ const FriendsPopup = ({ userId }) => {
 
       setShowPopup(false);
     } catch (error) {
-      console.error('Error adding friends:', error);
+      console.error("Error adding friends:", error);
     }
   };
 

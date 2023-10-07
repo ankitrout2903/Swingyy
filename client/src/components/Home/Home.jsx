@@ -1,7 +1,6 @@
-import './style.css';
+import React from "react";
 
-export default function Home(){
-    return (
-        <div className="home">Select a friend to start chatting!!</div>
-    )
-}
+export const Home = () => {
+  return <div>Home</div>;
+};
+export default Home;
